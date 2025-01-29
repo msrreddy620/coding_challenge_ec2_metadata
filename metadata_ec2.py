@@ -7,7 +7,7 @@ TOKEN_URL = "http://169.254.169.254/latest/api/token"
 def get_metadata(key=None):
     """Fetch AWS instance metadata using IMDSv2 authentication."""
     try:
-        # Step 1: Get the token (valid for 6 hours by default)
+        # Step 1: Get the token 
         token_response = requests.put(TOKEN_URL, headers={"X-aws-ec2-metadata-token-ttl-seconds": "21600"}, timeout=2)
         token_response.raise_for_status()
         token = token_response.text
